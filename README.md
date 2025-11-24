@@ -51,4 +51,4 @@ The app solves major problems missing in existing systems like fake claims, lack
 ---
 
 # 🏗 Architecture Overview
-
+it was checking the git adding checking 
