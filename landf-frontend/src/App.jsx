@@ -4,6 +4,8 @@ import Home from "./pages/Home.jsx";
 import LostItem from "./pages/LostItem.jsx";
 import FoundItem from "./pages/FoundItem.jsx";
 import ItemDetails from "./pages/ItemDetails.jsx";
+import SignIn from "./pages/SignIn.jsx";
+
 
 export default function App() {
   return (
@@ -18,6 +20,7 @@ export default function App() {
             <Route path="/lost" element={<LostItem />} />
             <Route path="/found" element={<FoundItem />} />
             <Route path="/item/:id" element={<ItemDetails />} />
+            <Route path="/signin" element={<SignIn />} />
           </Routes>
         </div>
       </main>

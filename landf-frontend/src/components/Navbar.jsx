@@ -110,6 +110,19 @@ export default function Navbar() {
           >
             Report Found
           </NavLink>
+          <NavLink
+  to="/signin"
+  className={({ isActive }) =>
+    `hidden md:inline-flex items-center px-3 py-1.5 rounded-full text-xs md:text-sm border transition ${
+      isActive
+        ? "border-blue-400 text-blue-200"
+        : "border-slate-600 text-slate-200 hover:border-blue-400 hover:text-blue-300"
+    }`
+  }
+>
+  Sign in
+</NavLink>
+
         </div>
       </div>
     </header>
