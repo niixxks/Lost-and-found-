@@ -5,11 +5,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const linkBase =
-    "px-3 py-1.5 rounded-full text-xs md:text-sm transition-flex font-medium";
+    "px-3 py-1.5 rounded-full text-xs md:text-sm transition font-medium";
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-gradient-to-r from-slate-900/70 via-slate-800/60 to-indigo-900/60 border-b border-slate-800">
       <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        
         {/* Brand */}
         <Link to="/" className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center text-white text-base font-bold shadow-md">
@@ -21,8 +22,10 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop links */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-3">
+
+          {/* Report Lost */}
           <NavLink
             to="/lost"
             className={({ isActive }) =>
@@ -36,6 +39,7 @@ export default function Navbar() {
             Report Lost
           </NavLink>
 
+          {/* Report Found */}
           <NavLink
             to="/found"
             className={({ isActive }) =>
@@ -47,6 +51,20 @@ export default function Navbar() {
             }
           >
             Report Found
+          </NavLink>
+
+          {/* 🔵 SIGN IN BUTTON */}
+          <NavLink
+            to="/signin"
+            className={({ isActive }) =>
+              `${linkBase} ${
+                isActive
+                  ? "bg-indigo-500 text-white shadow-md"
+                  : "border border-slate-700 text-slate-100 hover:border-indigo-400 hover:text-indigo-200"
+              }`
+            }
+          >
+            Sign In
           </NavLink>
         </div>
 
@@ -76,13 +94,14 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu panel */}
+      {/* Mobile menu */}
       <div
         className={`md:hidden bg-slate-900/80 border-t border-slate-800 transition-all duration-200 ease-in-out overflow-hidden ${
           open ? "max-h-60" : "max-h-0"
         }`}
       >
         <div className="px-4 pt-3 pb-4 space-y-2">
+
           <NavLink
             to="/lost"
             onClick={() => setOpen(false)}
@@ -110,18 +129,21 @@ export default function Navbar() {
           >
             Report Found
           </NavLink>
+
+          {/* 🔵 SIGN IN (Mobile) */}
           <NavLink
-  to="/signin"
-  className={({ isActive }) =>
-    `hidden md:inline-flex items-center px-3 py-1.5 rounded-full text-xs md:text-sm border transition ${
-      isActive
-        ? "border-blue-400 text-blue-200"
-        : "border-slate-600 text-slate-200 hover:border-blue-400 hover:text-blue-300"
-    }`
-  }
->
-  Sign in
-</NavLink>
+            to="/signin"
+            onClick={() => setOpen(false)}
+            className={({ isActive }) =>
+              `block w-full text-left px-3 py-2 rounded-md ${
+                isActive
+                  ? "bg-indigo-500 text-white"
+                  : "text-slate-100 hover:bg-slate-800/50"
+              }`
+            }
+          >
+            Sign In
+          </NavLink>
 
         </div>
       </div>
